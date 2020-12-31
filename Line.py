@@ -79,14 +79,12 @@ class Line:
         outputs the str necessary for printing / writing to a file
         :return: string version of object
         """
-        if isinstance(self.comment, str) and isinstance(self.command, str):
-            return self.command + ";" + self.comment
-        elif isinstance(self.command, str):
-            return self.command
-        elif isinstance(self.comment, str):
-            return ";" + self.comment
-        else:
-            return ""
+        ret = ""
+        if isinstance(self.command, str):
+            ret += self.command
+        if isinstance(self.comment, str):
+            ret += ";" + self.comment
+        return ret
 
     def __mul__(self, other: float):
         """
